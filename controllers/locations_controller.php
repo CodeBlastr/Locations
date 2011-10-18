@@ -18,9 +18,9 @@ class LocationsController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		if (!empty($this->request->data)) {
 			$this->Location->create();
-			if ($this->Location->save($this->data)) {
+			if ($this->Location->save($this->request->data)) {
 				$this->Session->setFlash(__('The location has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -31,20 +31,20 @@ class LocationsController extends AppController {
 	}
 
 	function edit($id = null) {
-		if (!$id && empty($this->data)) {
+		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Invalid location', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Location->save($this->data)) {
+		if (!empty($this->request->data)) {
+			if ($this->Location->save($this->request->data)) {
 				$this->Session->setFlash(__('The location has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The location could not be saved. Please, try again.', true));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Location->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->Location->read(null, $id);
 		}
 	}
 
@@ -74,9 +74,9 @@ class LocationsController extends AppController {
 	}
 
 	function admin_add() {
-		if (!empty($this->data)) {
+		if (!empty($this->request->data)) {
 			$this->Location->create();
-			if ($this->Location->save($this->data)) {
+			if ($this->Location->save($this->request->data)) {
 				$this->Session->setFlash(__('The location has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -86,20 +86,20 @@ class LocationsController extends AppController {
 	}
 
 	function admin_edit($id = null) {
-		if (!$id && empty($this->data)) {
+		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Invalid location', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Location->save($this->data)) {
+		if (!empty($this->request->data)) {
+			if ($this->Location->save($this->request->data)) {
 				$this->Session->setFlash(__('The location has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The location could not be saved. Please, try again.', true));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Location->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->Location->read(null, $id);
 		}
 	}
 
