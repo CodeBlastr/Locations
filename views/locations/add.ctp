@@ -1,7 +1,7 @@
 <div class="locations form">
 <?php echo $this->Form->create('Location');?>
 	<fieldset>
- 		<legend><?php __('Add Location'); ?></legend>
+ 		<legend><?php echo __('Add Location'); ?></legend>
 	<?php
 		echo $this->Form->input('zip');
 		echo $this->Form->select('model', $model, null, null);
@@ -13,7 +13,7 @@
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Locations', true), array('action' => 'index'));?></li>
