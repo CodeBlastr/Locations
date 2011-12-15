@@ -1,8 +1,9 @@
 <?php
 class LocationsController extends AppController {
 
-	var $name = 'Locations';
-	var $components = array('RequestHandler');
+	public $name = 'Locations';
+	public $uses = 'Locations.Location';
+	public $components = array('RequestHandler');
 
 	function index() {
 		$this->Location->recursive = 0;
