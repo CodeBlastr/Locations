@@ -12,13 +12,17 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Locations', true), array('action' => 'index'));?></li>
-	</ul>
-</div>
+<?php 
+// set the contextual menu items
+$this->set('context_menu', array('menus' => array(
+	array(
+		'heading' => 'Locations',
+		'items' => array(
+			$this->Html->link(__('List Locations', true), array('action' => 'index')),
+			)
+		),
+	)));
+?>
 
 <html>
 <head>
